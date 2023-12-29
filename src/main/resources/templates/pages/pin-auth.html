@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default}" lang="en">
+
+<th:block layout:fragment="css">
+<!--    <link th:inline="css" th:href="@{/lib/jquery-ui.min.css}" />-->
+</th:block>
+<th:block layout:fragment="script">
+<!--    <script th:src="@{/lib/jquery-3.7.1.min.js}"></script>-->
+<!--    <script th:src="@{/lib/jquery-ui.min.js}"></script>x`-->
+    <script>
+        $(document).ready(function () {
+            console.log("pin auth page load.");
+            console.log($('#txt').text());
+            tstname();
+        });
+    </script>
+</th:block>
+
+<!-- Content -->
+<div layout:fragment="page">
+    <h1>pin-auth page</h1>
+    <th:block th:replace="pages/contents/input-keypad :: inputKeypadContents"></th:block>
+</div>
+
+</html>

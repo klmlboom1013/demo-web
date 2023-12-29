@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+
+<!-- Content -->
+<div th:fragment="inputKeypadContents">
+    <th:block th:fragment="css"></th:block>
+    <th:block th:fragment="script">
+        <script>
+            const tstname = function () {
+                console.log("call input-keypad contents function");
+            };
+            $(document).ready(function () {
+                console.log("input-keypad contents load.");
+            });
+        </script>
+    </th:block>
+
+    <h1 id="txt">input-keypad contents</h1>
+</div>
+
+</html>

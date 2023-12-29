@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+
+<!-- Content -->
+<div th:fragment="creditcardSimpleRegContents" id="simpleRegConts" style="display: none">
+    <th:block th:fragment="css"></th:block>
+    <th:block th:fragment="script">
+        <script>
+            $(document).ready(function () {
+                console.log("creditcard-simple-reg contents load.");
+            });
+        </script>
+    </th:block>
+
+    <h1 id="txt">creditcard-simple-reg contents</h1>
+    <a href="javascript:void(0)" id="chngContsOcr2">SCAN</a>
+    <a href="javascript:void(0)" id="chngContsDirectInput2">수기입력</a>
+</div>
+
+</html>
