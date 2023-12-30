@@ -41,7 +41,7 @@ public class CreditCardRegController {
                 .useFdsYn("N")
                 .useKeyPadYn("Y")
                 .data(CreditCardRegForm.builder()
-                        .billKeyRegYn(Strings.isBlank(command.getBillKey()) ? "N" : "Y")
+                        .billKeyChngYn(Strings.isBlank(command.getBillKey()) ? "N" : "Y")
                         .build())
                 .build();
         log.info(form.toString());

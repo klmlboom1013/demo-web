@@ -1,23 +1,20 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
-
-      lang="en">
+      lang="en"
+      th:fragment="creditcardDirectInputContents">
 
 <!-- Content -->
-<div th:fragment="creditcardDirectInputContents" id="directInputConts" style="display: none">
-    <th:block th:fragment="css"></th:block>
-    <th:block th:fragment="script">
-        <script>
-            $(document).ready(function () {
-                console.log("creditcard-direct-input contents load.");
-            });
-        </script>
-    </th:block>
-
+<div>
     <h1 id="txt">creditcard-direct-input contents</h1>
     <a href="javascript:void(0)" id="chngContsOcr1">SCAN</a>
     <a href="javascript:void(0)" id="chngContsSimpleReg1">간편등록</a>
 </div>
+
+<script th:inline="javascript">
+    $(document).ready(function () {
+        console.log("creditcard-direct-input contents load.");
+    });
+</script>
 
 </html>

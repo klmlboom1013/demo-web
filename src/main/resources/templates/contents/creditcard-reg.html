@@ -2,33 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/default}" lang="en">
+      layout:decorate="~{layouts/creditcard}" lang="en">
 
-<th:block layout:fragment="css">
-<!--    <link th:inline="css" th:href="@{/lib/jquery-ui.min.css}" />-->
-</th:block>
+<!-- css -->
+<th:block layout:fragment="css"></th:block>
+
+<!-- Main Page -->
+<article layout:fragment="contents">
+    <div>
+        <h1>creditcard-reg page</h1>
+    </div>
+</article>
+
+<!-- Component -->
+<article id="ocrScanConts" layout:fragment="components-ocr" th:styleappend="${form.data.billKeyChngYn == 'Y' ? 'display:none' : 'display:block'}">
+    <th:block th:include="components/creditcard-ocr-scan :: creditcardOcrScanContents"></th:block>
+</article>
+<!-- Component -->
+<article id="directInputConts" layout:fragment="components-input" th:styleappend="${form.data.billKeyChngYn == 'Y' ? 'display:block' : 'display:none'}">
+    <th:block th:include="components/creditcard-direct-input :: creditcardDirectInputContents"></th:block>
+</article>
+<!-- Component -->
+<article id="simpleRegConts" layout:fragment="components-simple" th:styleappend="${form.data.billKeyChngYn == 'Y' ? 'display:none' : 'display:block'}">
+    <th:block th:include="components/creditcard-simple-reg :: creditcardSimpleRegContents"></th:block>
+</article>
+
 <th:block layout:fragment="pscript">
-<!--    <script th:src="@{/lib/jquery-3.7.1.min.js}"></script>-->
-<!--    <script th:src="@{/lib/jquery-ui.min.js}"></script>x`-->
-    <script>
-        $(document).ready(function () {
-            console.log("creditcard-reg page load.");
-            if('Y' === '[[${chngBillKeyYn}]]') {
-                $('#directInputConts').show();
-            } else {
-                $('#ocrScanConts').show();
-            }
-        });
-    </script>
-</th:block>
-
-<!-- Content -->
-<div layout:fragment="contents">
-    <h1>creditcard-reg page</h1>
-    <th:block th:replace="components/creditcard-ocr-scan :: creditcardOcrScanContents"></th:block>
-    <th:block th:replace="components/creditcard-direct-input :: creditcardDirectInputContents"></th:block>
-    <th:block th:replace="components/creditcard-simple-reg :: creditcardSimpleRegContents"></th:block>
-    <script>
+    <script th:inline="javascript">
         $('#chngContsDirectInput1, #chngContsDirectInput2').click(function () {
             $('#simpleRegConts').hide();
             $('#ocrScanConts').hide();
@@ -44,7 +44,10 @@
             $('#ocrScanConts').hide();
             $('#simpleRegConts').show();
         });
+        $(document).ready(function () {
+            console.log('creditcard-reg page load.');
+        });
     </script>
-</div>
+</th:block>
 
 </html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<th:block th:replace="fragments/head :: headTitleFragment"></th:block>
+
+<body>
+<!-- header fragment 사용 -->
+<th:block th:replace="fragments/header-keypad :: headerKeyPadFragment"></th:block>
+
+<!-- contents fragment 사용 -->
+<th:block layout:fragment="contents"></th:block>
+
+<th:block layout:fragment="components-ocr"></th:block>
+<th:block layout:fragment="components-simple"></th:block>
+<th:block layout:fragment="components-input"></th:block>
+
+<th:block layout:fragment="pscript"></th:block>
+
+<!-- footer fragment 사용 -->
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
+</body>
+</html>
