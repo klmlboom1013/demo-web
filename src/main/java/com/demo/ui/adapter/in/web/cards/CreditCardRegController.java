@@ -27,6 +27,6 @@ public class CreditCardRegController {
         model.addAttribute("useFdsYn", "Y");
         model.addAttribute("useKeyPadYn", "Y");
         model.addAttribute("chngBillKeyYn", "N");
-        return "pages/creditcard-reg";
+        return "contents/creditcard-reg";
     }
 }

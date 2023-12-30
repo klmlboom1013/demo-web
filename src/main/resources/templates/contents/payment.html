@@ -12,7 +12,7 @@
 <!--    <script th:src="@{/lib/jquery-ui.min.js}"></script>x`-->
     <script>
         $(document).ready(function () {
-            console.log("pin auth page load.");
+            console.log("payment page load.");
             console.log($('#txt').text());
             tstname();
         });
@@ -20,9 +20,11 @@
 </th:block>
 
 <!-- Content -->
-<div layout:fragment="page">
-    <h1>pin-auth page</h1>
-    <th:block th:replace="pages/contents/input-keypad :: inputKeypadContents"></th:block>
+<div layout:fragment="contents">
+    <h1>payment page</h1>
+    <th:block th:if="${paymentForm.pinFlagYn == 'Y'}">
+        <th:block th:replace="contents/contents/input-keypad :: inputKeypadContents"></th:block>
+    </th:block>
 </div>
 
 </html>

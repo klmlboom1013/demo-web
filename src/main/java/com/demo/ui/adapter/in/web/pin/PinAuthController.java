@@ -24,6 +24,6 @@ public class PinAuthController {
     public String pinAuthRun(@PathVariable String version, Model model) {
         model.addAttribute("useFdsYn", "N");
         model.addAttribute("useKeyPadYn", "Y");
-        return "pages/pin-auth";
+        return "contents/pin-auth";
     }
 }

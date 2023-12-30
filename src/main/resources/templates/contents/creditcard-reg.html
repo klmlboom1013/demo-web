@@ -7,7 +7,7 @@
 <th:block layout:fragment="css">
 <!--    <link th:inline="css" th:href="@{/lib/jquery-ui.min.css}" />-->
 </th:block>
-<th:block layout:fragment="script">
+<th:block layout:fragment="pscript">
 <!--    <script th:src="@{/lib/jquery-3.7.1.min.js}"></script>-->
 <!--    <script th:src="@{/lib/jquery-ui.min.js}"></script>x`-->
     <script>
@@ -23,11 +23,11 @@
 </th:block>
 
 <!-- Content -->
-<div layout:fragment="page">
+<div layout:fragment="contents">
     <h1>creditcard-reg page</h1>
-    <th:block th:replace="pages/contents/creditcard-ocr-scan :: creditcardOcrScanContents"></th:block>
-    <th:block th:replace="pages/contents/creditcard-direct-input :: creditcardDirectInputContents"></th:block>
-    <th:block th:replace="pages/contents/creditcard-simple-reg :: creditcardSimpleRegContents"></th:block>
+    <th:block th:replace="components/creditcard-ocr-scan :: creditcardOcrScanContents"></th:block>
+    <th:block th:replace="components/creditcard-direct-input :: creditcardDirectInputContents"></th:block>
+    <th:block th:replace="components/creditcard-simple-reg :: creditcardSimpleRegContents"></th:block>
     <script>
         $('#chngContsDirectInput1, #chngContsDirectInput2').click(function () {
             $('#simpleRegConts').hide();

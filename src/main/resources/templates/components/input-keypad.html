@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en"
+      th:fragment="inputKeypadContents">
+
+<div>
+    <h1 id="txt">input-keypad contents 2</h1>
+</div>
+
+<script th:inline="javascript" th:src="@{/models/input-keypad.js}"></script>
+
+<script th:inline="javascript">
+    const inputKeypad = new InputKeypad();
+    inputKeypad.wtid = [[${form.wtid}]];
+
+    const tstname = function () {
+        console.log("call input-keypad contents function");
+    };
+
+    $(document).ready(function () {
+        console.log("input-keypad contents load.");
+    });
+
+</script>
+
+</html>

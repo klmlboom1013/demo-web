@@ -43,12 +43,14 @@ public class BillingSignupController {
         /* 기준정보 조회. */
         billingSignupForm.setBasicInfoData(useCase.execute(command));
 
+        log.info(billingSignupForm.toString());
+
         /* 데이터 세팅 */
-        model.addAttribute("billingSignupForm", billingSignupForm);
+        model.addAttribute("form", billingSignupForm);
         model.addAttribute("useFdsYn", "Y");
         model.addAttribute("useKeyPadYn", "Y");
 
 
-        return "pages/billing-signup";
+        return "contents/billing-signup";
     }
 }

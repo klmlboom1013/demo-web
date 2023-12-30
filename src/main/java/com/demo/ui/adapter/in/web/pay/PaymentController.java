@@ -23,9 +23,9 @@ public class PaymentController {
 
     @GetMapping("ui/{version}/payment")
     public String paymentRun(@PathVariable String version, Model model) {
-        model.addAttribute("paymentForm", PaymentForm.builder().build());
+        model.addAttribute("form", PaymentForm.builder().build());
         model.addAttribute("useFdsYn", "Y");
         model.addAttribute("useKeyPadYn", "Y");
-        return "pages/payment";
+        return "contents/payment";
     }
 }
