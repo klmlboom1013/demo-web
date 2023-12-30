@@ -4,11 +4,6 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/default}" lang="en">
 
-<!-- css -->
-<th:block layout:fragment="css">
-<!--    <link th:inline="css" th:href="@{/lib/jquery-ui.min.css}" />-->
-</th:block>
-
 <!-- Main Page -->
 <article layout:fragment="contents">
     <div>
@@ -24,14 +19,8 @@
 
 <!-- Script -->
 <th:block layout:fragment="pscript">
-    <!--    <script th:src="@{/lib/jquery-3.7.1.min.js}"></script>-->
-    <!--    <script th:src="@{/lib/jquery-ui.min.js}"></script>x`-->
     <script th:inline="javascript">
         $(document).ready(function () {
-            console.log("billing-signup page load.");
-            console.log($('#txt').text());
-            tstname();
-
             console.log("wtid : " + inputKeypad.wtid);
         });
     </script>

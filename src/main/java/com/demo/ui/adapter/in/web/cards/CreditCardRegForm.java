@@ -8,4 +8,5 @@ import lombok.ToString;
 @Builder
 @ToString
 public class CreditCardRegForm {
+    private String billKeyRegYn;
 }

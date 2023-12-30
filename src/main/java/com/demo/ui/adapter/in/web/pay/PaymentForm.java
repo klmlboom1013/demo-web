@@ -8,5 +8,5 @@ import lombok.ToString;
 @Builder
 @ToString
 public class PaymentForm {
-    private final String pinFlagYn="Y";
+
 }

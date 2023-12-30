@@ -9,19 +9,9 @@
 </div>
 
 <script th:inline="javascript" th:src="@{/models/input-keypad.js}"></script>
-
 <script th:inline="javascript">
     const inputKeypad = new InputKeypad();
     inputKeypad.wtid = [[${form.wtid}]];
-
-    const tstname = function () {
-        console.log("call input-keypad contents function");
-    };
-
-    $(document).ready(function () {
-        console.log("input-keypad contents load.");
-    });
-
 </script>
 
 </html>

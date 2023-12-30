@@ -19,13 +19,13 @@
 
 <body>
 <!-- header fragment 사용 -->
-<th:block th:if="${useFdsYn == 'N' and useKeyPadYn =='N'}">
+<th:block th:if="${form.useFdsYn != 'Y' and form.useKeyPadYn !='Y'}">
     <th:block th:replace="fragments/header :: headerFragment"></th:block>
 </th:block>
-<th:block th:if="${useFdsYn == 'Y'}">
+<th:block th:if="${form.useFdsYn == 'Y'}">
     <th:block th:replace="fragments/header-fds :: headerFdsFragment"></th:block>
 </th:block>
-<th:block th:if="${useKeyPadYn == 'Y'}">
+<th:block th:if="${form.useKeyPadYn == 'Y'}">
     <th:block th:replace="fragments/header-keypad :: headerKeyPadFragment"></th:block>
 </th:block>
 

@@ -4,27 +4,24 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/default}" lang="en">
 
-<th:block layout:fragment="css">
-<!--    <link th:inline="css" th:href="@{/lib/jquery-ui.min.css}" />-->
-</th:block>
-<th:block layout:fragment="script">
-<!--    <script th:src="@{/lib/jquery-3.7.1.min.js}"></script>-->
-<!--    <script th:src="@{/lib/jquery-ui.min.js}"></script>x`-->
+<!-- Content -->
+<article layout:fragment="contents">
+    <h1>payment page</h1>
+</article>
+
+<!-- Component -->
+<article layout:fragment="components">
+    <!-- 핀 입력 컴포넌트 -->
+    <th:block th:include="components/input-keypad :: inputKeypadContents"></th:block>
+</article>
+
+
+<th:block layout:fragment="pscript">
     <script>
         $(document).ready(function () {
-            console.log("payment page load.");
-            console.log($('#txt').text());
-            tstname();
+            console.log("wtid : " + inputKeypad.wtid);
         });
     </script>
 </th:block>
-
-<!-- Content -->
-<div layout:fragment="contents">
-    <h1>payment page</h1>
-    <th:block th:if="${paymentForm.pinFlagYn == 'Y'}">
-        <th:block th:replace="contents/contents/input-keypad :: inputKeypadContents"></th:block>
-    </th:block>
-</div>
 
 </html>
