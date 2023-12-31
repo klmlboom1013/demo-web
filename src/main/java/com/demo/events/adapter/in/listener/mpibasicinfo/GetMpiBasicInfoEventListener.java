@@ -1,11 +1,13 @@
 package com.demo.events.adapter.in.listener.mpibasicinfo;
 
-import com.demo.events.application.port.in.mpibasicinfo.GetMpiBasicInfoEventPublisher;
+import com.demo.events.application.port.in.mpibasicinfo.GetMpiBasicInfoCommand;
 import com.demo.events.application.port.in.mpibasicinfo.GetMpiBasicInfoUseCasePort;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 
+@Log4j2
 @Component
 @RequiredArgsConstructor
 public class GetMpiBasicInfoEventListener {
@@ -14,6 +16,14 @@ public class GetMpiBasicInfoEventListener {
 
     @EventListener
     public void getMpiBasicInfo (GetMpiBasicInfoEventPublisher getMpiBasicInfoEventPublisher) {
-        this.getMpiBasicInfoUseCasePort.execute(getMpiBasicInfoEventPublisher);
+        final Object mpiBasicInfo = this.getMpiBasicInfoUseCasePort.execute(GetMpiBasicInfoCommand.builder()
+                        .mid(getMpiBasicInfoEventPublisher.getMid())
+                        .wtid(getMpiBasicInfoEventPublisher.getWtid())
+                        .searchType(getMpiBasicInfoEventPublisher.getSearchType())
+                        .build());
+        log.info("result mpiBasicInfo: {}", mpiBasicInfo);
+        getMpiBasicInfoEventPublisher.setResult(GetMpiBasicInfoEventPublisher.Result.builder()
+                        .mpiBasicInfo(mpiBasicInfo)
+                        .build());
     }
 }

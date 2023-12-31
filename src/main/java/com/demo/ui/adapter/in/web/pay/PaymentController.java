@@ -1,8 +1,8 @@
 package com.demo.ui.adapter.in.web.pay;
 
-import com.demo.events.application.port.in.jnoffctrns.RecodeJnoffcTrnsEventPublisher;
-import com.demo.events.application.port.in.mpibasicinfo.GetMpiBasicInfoEventPublisher;
-import com.demo.events.application.port.in.wtid.GetWtidEventPublisher;
+import com.demo.events.adapter.in.listener.jnoffctrns.RecodeJnoffcTrnsEventPublisher;
+import com.demo.events.adapter.in.listener.mpibasicinfo.GetMpiBasicInfoEventPublisher;
+import com.demo.events.adapter.in.listener.wtid.GetWtidEventPublisher;
 import com.demo.ui.adapter.in.web.ModelViewForm;
 import com.demo.ui.application.port.in.pay.PaymentCommand;
 import lombok.RequiredArgsConstructor;
@@ -37,8 +37,9 @@ public class PaymentController {
                 .idcDvdCd("LO")
                 .build();
         this.publisher.publishEvent(getWtidEventPublisher);
-        log.info("event result getWtid: {}", getWtidEventPublisher.getWtid());
-        command.setWtid(getWtidEventPublisher.getWtid());
+        final String wtid = getWtidEventPublisher.getResult().getWtid();
+        log.info("event result getWtid: {}", wtid);
+        command.setWtid(wtid);
         /* 기준정보 조회. */
         GetMpiBasicInfoEventPublisher getMpiBasicInfoEventPublisher = GetMpiBasicInfoEventPublisher.builder()
                 .mid(command.getMid())
@@ -46,7 +47,7 @@ public class PaymentController {
                 .searchType("")
                 .build();
         this.publisher.publishEvent(getMpiBasicInfoEventPublisher);
-        log.info("event result mpiBasicInfo: {}", getMpiBasicInfoEventPublisher.getMpiBasicInfo());
+        log.info("event result mpiBasicInfo: {}", getMpiBasicInfoEventPublisher.getResult().getMpiBasicInfo());
         /* 가맹점 요청 데이터 저장 */
         RecodeJnoffcTrnsEventPublisher recodeJnoffcTrnsEventPublisher = RecodeJnoffcTrnsEventPublisher.builder()
                 .mid(command.getMid())

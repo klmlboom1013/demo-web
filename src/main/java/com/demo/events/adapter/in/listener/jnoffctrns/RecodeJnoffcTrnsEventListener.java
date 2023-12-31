@@ -1,7 +1,8 @@
 package com.demo.events.adapter.in.listener.jnoffctrns;
 
-import com.demo.events.application.port.in.jnoffctrns.RecodeJnoffcTrnsEventPublisher;
-import lombok.RequiredArgsConstructor;
+import com.demo.events.application.port.in.jnoffctrns.RecodeJnoffcTrnsCommand;
+import com.demo.events.application.port.in.jnoffctrns.RecodeJnoffcTrnsUseCasePort;
+import lombok.*;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
@@ -11,8 +12,19 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class RecodeJnoffcTrnsEventListener {
 
+    private final RecodeJnoffcTrnsUseCasePort recodeJnoffcTrnsUseCasePort;
+
     @EventListener
     public void recodeJnoffcTrnsRun(RecodeJnoffcTrnsEventPublisher recodeJnoffcTrnsEventPublisher) {
-       log.info("가맹점 요청 정보 저장: {}", recodeJnoffcTrnsEventPublisher);
+        RecodeJnoffcTrnsCommand recodeJnoffcTrnsCommand = RecodeJnoffcTrnsCommand.builder()
+                .mid(recodeJnoffcTrnsEventPublisher.getMid())
+                .wtid(recodeJnoffcTrnsEventPublisher.getWtid())
+                .requestJsonStr(recodeJnoffcTrnsEventPublisher.getRequestJsonStr())
+                .build();
+        log.info("가맹점 요청 정보 저장: {}", recodeJnoffcTrnsCommand);
+
+        recodeJnoffcTrnsEventPublisher.setResult(RecodeJnoffcTrnsEventPublisher.Result.builder()
+                .data(recodeJnoffcTrnsUseCasePort.execute(recodeJnoffcTrnsCommand))
+                .build());
     }
 }

@@ -7,7 +7,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 public interface GetMpiBasicInfoUseCasePort {
-    void execute(GetMpiBasicInfoEventPublisher getMpiBasicInfoEventPublisher);
+    Object execute(GetMpiBasicInfoCommand getMpiBasicInfoCommand);
 
 
     @Log4j2
@@ -18,14 +18,12 @@ public interface GetMpiBasicInfoUseCasePort {
         private final MpiBasicInfoExternal mpiBasicInfoExternal;
 
         @Override
-        public void execute(GetMpiBasicInfoEventPublisher getMpiBasicInfoEventPublisher) {
-            final Object mpiBasicInfo = mpiBasicInfoExternal.getMpiBasicInfoRun(
+        public Object execute(GetMpiBasicInfoCommand getMpiBasicInfoCommand) {
+            return mpiBasicInfoExternal.getMpiBasicInfoRun(
                     ActivityMpiBasicInfo.builder()
-                            .wtid(getMpiBasicInfoEventPublisher.getWtid())
-                            .mid(getMpiBasicInfoEventPublisher.getMid())
+                            .wtid(getMpiBasicInfoCommand.getWtid())
+                            .mid(getMpiBasicInfoCommand.getMid())
                             .build());
-            log.info("result mpiBasicInfo: {}", mpiBasicInfo);
-            getMpiBasicInfoEventPublisher.setMpiBasicInfo(mpiBasicInfo);
         }
     }
 }

@@ -9,7 +9,7 @@ import lombok.Value;
 @Builder
 @Value
 @ToString
-public class RecodeJnoffcTrnsEventPublisher {
+public class RecodeJnoffcTrnsCommand {
     String wtid;
     String mid;
     String requestJsonStr;

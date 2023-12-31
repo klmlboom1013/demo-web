@@ -7,7 +7,7 @@ import lombok.ToString;
 
 @Getter
 @ToString
-public class GetMpiBasicInfoEventPublisher {
+public class GetMpiBasicInfoCommand {
     private final String wtid;
     private final String mid;
     private final String searchType;
@@ -16,7 +16,7 @@ public class GetMpiBasicInfoEventPublisher {
     private Object mpiBasicInfo;
 
     @Builder
-    public GetMpiBasicInfoEventPublisher(String wtid, String mid, String searchType) {
+    public GetMpiBasicInfoCommand(String wtid, String mid, String searchType) {
         this.wtid = wtid;
         this.mid = mid;
         this.searchType = searchType;

@@ -1,9 +1,6 @@
-package com.demo.events.application.port.in.wtid;
+package com.demo.events.adapter.in.listener.wtid;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 @Getter
 @ToString
@@ -12,11 +9,19 @@ public class GetWtidEventPublisher {
     private final String currentDate;
 
     @Setter
-    private String wtid;
+    private Result result;
 
     @Builder
     public GetWtidEventPublisher(String idcDvdCd, String currentDate) {
         this.idcDvdCd = idcDvdCd;
         this.currentDate = currentDate;
+    }
+
+    @Getter
+    @Builder
+    @Value
+    @ToString
+    public static class Result {
+        String wtid;
     }
 }

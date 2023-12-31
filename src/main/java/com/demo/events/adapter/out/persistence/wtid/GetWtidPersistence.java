@@ -1,6 +1,6 @@
 package com.demo.events.adapter.out.persistence.wtid;
 
-import com.demo.events.application.port.out.persistence.GetWtidPersistencePort;
+import com.demo.events.application.port.out.persistence.wtid.GetWtidPersistencePort;
 import com.demo.events.domain.ActivityWtid;
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package com.demo.events.application.port.out.persistence;
+package com.demo.events.application.port.out.persistence.wtid;
 
 
 import com.demo.events.domain.ActivityWtid;
