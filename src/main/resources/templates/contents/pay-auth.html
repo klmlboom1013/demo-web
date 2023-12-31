@@ -4,11 +4,9 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
       layout:decorate="~{layouts/payment}" lang="en">
 
-<!-- Main Page -->
+<!-- Content -->
 <article layout:fragment="contents">
-    <div>
-        <h1>billing-signup page</h1>
-    </div>
+    <h1>payment page</h1>
 </article>
 
 <!-- Component -->
@@ -17,14 +15,13 @@
     <th:block th:include="components/input-keypad :: inputKeypadContents"></th:block>
 </article>
 
-<!-- Script -->
+
 <th:block layout:fragment="pscript">
-    <script th:inline="javascript">
+    <script>
         $(document).ready(function () {
             console.log("wtid : " + inputKeypad.wtid);
         });
     </script>
 </th:block>
-
 
 </html>

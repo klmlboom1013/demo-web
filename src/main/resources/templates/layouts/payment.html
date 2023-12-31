@@ -8,6 +8,10 @@
 <body>
 <!-- header fragment -->
 <th:block th:replace="fragments/header :: headerFragment"></th:block>
+<th:block th:replace="fragments/header-fds :: headerFdsFragment"></th:block>
+<th:block th:if="${form.useKeyPadYn != 'N'}">
+    <th:block th:replace="fragments/header-keypad :: headerKeyPadFragment"></th:block>
+</th:block>
 
 <!-- contents fragment 사용 -->
 <th:block layout:fragment="contents"></th:block>
