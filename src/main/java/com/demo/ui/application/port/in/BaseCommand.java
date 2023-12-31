@@ -1,4 +1,4 @@
-package com.demo.application.port.in;
+package com.demo.ui.application.port.in;
 
 import lombok.Getter;
 import lombok.Setter;
