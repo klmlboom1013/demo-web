@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{layouts/creditcard}" lang="en">
+      layout:decorate="~{layouts/keypad}" lang="en">
 
 <!-- css -->
 <th:block layout:fragment="css"></th:block>
@@ -23,7 +23,7 @@
     <th:block th:include="components/creditcard-direct-input :: creditcardDirectInputContents"></th:block>
 </article>
 <!-- Component -->
-<article id="simpleRegConts" layout:fragment="components-simple" th:styleappend="${form.data.billKeyChngYn == 'Y' ? 'display:none' : 'display:block'}">
+<article id="simpleRegConts" layout:fragment="components-simple" th:styleappend="'display:none'">
     <th:block th:include="components/creditcard-simple-reg :: creditcardSimpleRegContents"></th:block>
 </article>
 

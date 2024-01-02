@@ -1,0 +1,23 @@
+pinauth
+	adapter
+		in
+			web
+				proceed
+				    CheckPinNumbKeypadProcController.java
+				ui
+					PinAuthUiController.java
+	application
+		port
+			in
+			    member
+                    find
+                        member: FindMemberPublisher.java
+				keypad
+					check
+						CheckPinNumbKeyPadUseCasePort.java
+						CheckPinNumbKeyPadCommand.java
+		service
+			...
+	domain
+		ActivityCheckPinNumbKeypad.java
+		CompleteCheckPinNumbKeypad.java

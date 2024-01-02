@@ -70,6 +70,6 @@ public class CardRegUiController {
 
         /* 모델 세팅 */
         model.addAttribute("form", form);
-        return "contents/creditcard-reg";
+        return "contents/card-reg";
     }
 }
